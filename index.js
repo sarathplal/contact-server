@@ -3,11 +3,13 @@ const jsonServer = require('json-server')
 
                 // require** is equivalent to import** 
 
+const cors=require('cors')
 
 // create json-server application
 
 const server = jsonServer.create()
 
+server.use(cors())
 // set up the route for db.json()
 
 const router = jsonServer.router("db.json")
@@ -15,8 +17,8 @@ const router = jsonServer.router("db.json")
 // create a middleware using json server
 const middleware = jsonServer.defaults()
 
-// set up port number for server app
 
+// set up port number for server app
 const port = process.env.PORT || 3000
 
 // we have to use router and middleware
